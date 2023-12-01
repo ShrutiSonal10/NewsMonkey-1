@@ -150,6 +150,15 @@ export class News extends Component {
 
     };
   }
+    async componentDidMount(){
+    let url = "https://newsapi.org/v2/everything?q=tesla&from=2023-11-01&sortBy=publishedAt&apiKey=8acccb607cdd488fb0cae19b6e2628b3";
+    let data = await fetch(url);
+    let parsedData = await data.json();
+    console.log(parsedData);
+    this.setState({articles:parsedData.articles});
+
+
+  }
   render() {
     return (
       <div className="container my-3 ">
